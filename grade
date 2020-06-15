@@ -28,7 +28,7 @@ grades[$i]=$grade
 printf "### Score $i: ${grades[$i]}\n"
 
 # from https://stackoverflow.com/a/31653407/827927
-IFS='+' average_grade=100
+IFS='+' average_grade=$(echo "scale=1;(${grades[*]})/${#grades[@]}"|bc)
 printf "\n\nGrade: $average_grade\n\n"
 
 make -f Makefile --silent clean
